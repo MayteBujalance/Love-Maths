@@ -250,3 +250,25 @@ body {
     }
 
 }
+/* Media Query for Ipad Air, Pro and more*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .game-area {
+        height: auto;
+        padding-bottom: 30px;
+    }
+
+    .question-area {
+        width: 90%;
+        padding: 20px 0;
+        font-size: 1.8rem;
+    }
+
+    .btn--gray {
+        display: block;
+        margin: 20px auto;
+    }
+
+    .btn--big {
+        margin: 10px;
+    }
+}
