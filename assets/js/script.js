@@ -43,8 +43,8 @@ if (gameType === "addition"){
     displayAdditionQuestion(num1, num2);
    } else if (gameType ==="multiply"){
     displayMultiplyQuestion(num1, num2);
-   } else if (gameType === "subtract"){
-    displaySubtractQuestion(num1, num2);
+   } else if (gameType === "substract"){
+    displaySubstractQuestion(num1, num2);
    } else if (gameType === "division"){
     displayDivisionQuestion(num1, num2);
     } else {
@@ -87,7 +87,7 @@ function calculateCorrectAnswer(){
     } else if (operator === "x"){
         return [operand1 * operand2, "multiply"];
     } else if (operator === "-"){
-        return [operand1 - operand2, "subtract"];
+        return [operand1 - operand2, "substract"];
 
     } else if (operator === "/") {
         return [operand1 / operand2, "division"];
@@ -125,7 +125,7 @@ function displayAdditionQuestion(operand1, operand2){
 
 }
 
-function displaySubtractQuestion(operand1, operand2){
+function displaySubstractQuestion(operand1, operand2){
     // Ternary operator is used to ensure that the first operand is always greater than the second. is operand1 greater than operand2? if yes, write operasn1 if not (else) apply operand2.
     document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2;
     document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
