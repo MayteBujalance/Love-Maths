@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener("click", function() {
             // If the button clicked has the data-type attribute of submit then we will send an alert.
             if (this.getAttribute("data-type") === "submit") {
-                alert("You clicked the submit button!");
+                checkAnswer();
             } else {
                 let gameType = this.getAttribute("data-type");
                 runGame(gameType);
@@ -37,11 +37,41 @@ if (gameType === "addition"){
     throw`Unknown game type: ${gameType}. Aborting!`;
    }
 
+/**
+ * Checks the naswer given by iser against the first element in the returned calculateCorrectAnswer array
+ */
 function checkAnswer(){
+    // takes the answers value from the id box and store it in a variable userAnswer
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect){
+        alert("Hey! You got it right!");      
+    } else {
+        alert(`awww.... you answered ${userAnswer}.The correct answer was ${calculatedAnswer[0]}. You are geeting there, keep trying!`);
+    }
+
+    runGame(calculatedAnswer[1]);
 
 }
-
+/**
+ * Gets the operans(the numbers) and the operator(plus, minus etc)
+ * from the DOM and returns the corret answer,
+ */
 function calculateCorrectAnswer(){
+    // this gets the values back from the DOM. ParseInt change string to a number
+    let operand1 = parseInt(document.getElementById("operand1").innerText);
+    let operand2 = parseInt(document.getElementById("operand2").innerText);
+    let operator = document.getElementById("operator").innerText;
+
+    if (operator === "+"){
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert(`Unimplemented operator: ${operator}`);
+        throw`Unimplemented operator: ${operator}. Aborting!`;
+         }
+    }
 
 }
 
@@ -66,5 +96,4 @@ function displaySubtractQuestion(){
 
 function displayMultiplyQuestion(){
 
-}
 }
