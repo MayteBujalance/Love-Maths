@@ -22,7 +22,8 @@ document.getElementById("answer-box").addEventListener("keydown", function(event
         checkAnswer();
     }
 }
-runGame("addition");
+);
+ runGame("addition");
 });
 
 /**
@@ -85,8 +86,11 @@ function calculateCorrectAnswer(){
         return [operand1 + operand2, "addition"];
     } else if (operator === "x"){
         return [operand1 * operand2, "multiply"];
-    } else if (oeprator === "-"){
+    } else if (operator === "-"){
         return [operand1 - operand2, "substruct"];
+
+    } else if (operator === "/") {
+        return [operand1 / operand2, "division"];
 
     }else {
         alert(`Unimplemented operator: ${operator}`);
@@ -135,8 +139,10 @@ function displayMultiplyQuestion(operand1, operand2){
     document.getElementById("operator").textContent = "x";
 }
 
-function displayDivisionQuestion(operand1, operand2){
-    document.getElementById("operand1").textContent = operand1;
+function displayDivisionQuestion(operand1, operand2) {
+    // Ensure the division results in a whole number by finding a multiple of operand2
+    let dividend = operand1 * operand2;
+    document.getElementById("operand1").textContent = dividend;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "/";
 }
