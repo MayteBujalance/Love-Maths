@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 }
+
 document.getElementById("answer-box").addEventListener("keydown", function(event){
     // if the user presses enter key, check the answer
     if (event.key === "Enter"){
         checkAnswer();
     }
-}
-);
+});
  runGame("addition");
 });
 
@@ -33,7 +33,7 @@ document.getElementById("answer-box").addEventListener("keydown", function(event
 function runGame(gameType){
     // clears the answer box when cliked submit
     document.getElementById("answer-box").value = "";
-    // focus on the answer box when the game starts so cursos is ready to type
+    // focus on the answer box when the game starts so cursor is ready to type
     document.getElementById("answer-box").focus();
     // This function will create two random numbers between 1 and 25
 let num1  = Math.floor(Math.random() *25) +1;
@@ -43,7 +43,7 @@ if (gameType === "addition"){
     displayAdditionQuestion(num1, num2);
    } else if (gameType ==="multiply"){
     displayMultiplyQuestion(num1, num2);
-   } else if (gameType === "substruct"){
+   } else if (gameType === "subtract"){
     displaySubtractQuestion(num1, num2);
    } else if (gameType === "division"){
     displayDivisionQuestion(num1, num2);
@@ -87,7 +87,7 @@ function calculateCorrectAnswer(){
     } else if (operator === "x"){
         return [operand1 * operand2, "multiply"];
     } else if (operator === "-"){
-        return [operand1 - operand2, "substruct"];
+        return [operand1 - operand2, "subtract"];
 
     } else if (operator === "/") {
         return [operand1 / operand2, "division"];
@@ -126,7 +126,7 @@ function displayAdditionQuestion(operand1, operand2){
 }
 
 function displaySubtractQuestion(operand1, operand2){
-    // Ternary operator is used to ensure that the first operand is always greater than the second. is operand1 greater than openas2? if yes, write operasn1 if not (else) apply operand2.
+    // Ternary operator is used to ensure that the first operand is always greater than the second. is operand1 greater than operand2? if yes, write operasn1 if not (else) apply operand2.
     document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2;
     document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
     document.getElementById("operator").textContent = "-";
