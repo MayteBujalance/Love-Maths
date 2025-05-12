@@ -16,17 +16,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 }
-
+document.getElementById("answer-box").addEventListener("keydown", function(event){
+    // if the user presses enter key, check the answer
+    if (event.key === "Enter"){
+        checkAnswer();
+    }
+}
 runGame("addition");
 });
 
 /**
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
- * This function will create two random numbers between 1 and 25
- * and assign them to num1 and num2
  */
 function runGame(gameType){
+    // clears the answer box when cliked submit
+    document.getElementById("answer-box").value = "";
+    // focus on the answer box when the game starts so cursos is ready to type
+    document.getElementById("answer-box").focus();
+    // This function will create two random numbers between 1 and 25
 let num1  = Math.floor(Math.random() *25) +1;
 let num2  = Math.floor(Math.random() *25) +1;
 
