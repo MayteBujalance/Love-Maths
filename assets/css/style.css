@@ -26,7 +26,6 @@ body {
     box-sizing: border-box;
     width: 85%;
     height: 65vh;
-    max-height: 450px;
     max-width: 830px;
     margin-left: auto;
     margin-right: auto;
@@ -254,13 +253,17 @@ body {
 @media (min-width: 768px) and (max-width: 1024px) {
     .game-area {
         height: auto;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
     }
 
     .question-area {
-        width: 90%;
+        width: 100%;
         padding: 20px 0;
         font-size: 1.8rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 
     .btn--gray {
